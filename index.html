@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="demo">test</h1>
+
+
+
+<script>
+
+let arr  = new Array(6);
+
+
+console.log(rev(arr));
+//rev(arr);
+
+
+function rev(a){
+
+        a[0] = [1,1,1,0,0,0];
+        a[1] = [0,1,0,0,0,0];
+        a[2] = [1,1,1,0,0,0];
+        a[3] = [0,0,2,4,4,0];
+        a[4] = [0,0,0,2,0,0];
+        a[5] = [0,0,1,2,4,0];
+  
+  return a;
+
+
+}
+
+
+
+console.log(findMax(arr));
+
+
+
+function findMax(a){
+
+  let max = -Infinity;
+  
+    let sum = 0;
+        for (let index = 0; index < 4; index++) {
+            
+            for (let j = 0; j < 4; j++) {
+                //reset the sum
+               sum = 0;
+                //set the top
+                
+                sum += a[index][j] + a[index][j+1] + a[index][j+2];
+                //set the middle
+                sum += a[index+1][j+1];
+                //set the bottom
+                sum += a[index+2][j] + a[index+2][j+1] + a[index+2][j+2];
+                
+                max = Math.max(max,sum);
+               
+                
+            }
+
+        }
+
+
+  return  max;
+}
+
+
+
+
+
+</script>
+</body>
+</html>
